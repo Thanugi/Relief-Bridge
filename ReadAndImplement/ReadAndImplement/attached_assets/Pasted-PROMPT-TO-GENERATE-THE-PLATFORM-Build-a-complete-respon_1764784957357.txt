@@ -1,0 +1,264 @@
+PROMPT TO GENERATE THE PLATFORM
+
+Build a complete, responsive website called “ReliefBridge” — a disaster-relief coordination platform for Sri Lanka’s recent disaster event.
+This website should allow affected people, relatives, volunteers, donors, and NGOs to collaborate, report cases, and access public information.
+Please read the full requirements carefully and implement the exact design + functionality as described.
+
+⭐ 1. General Requirements
+
+Purpose:
+A public, open, transparent platform that lets the community help each other during a disaster.
+
+Key principles:
+
+Clean
+
+Calm
+
+Professional
+
+Monotone / minimal color palette
+
+No multicolored emojis — replace with simple outline icons, shapes, or minimal symbols
+
+Fully responsive (mobile-first, tablet, desktop)
+
+Color theme:
+
+Choose ONE calm, modern color family (e.g., green, light blue, cool gray)
+
+Use different shades of that same color
+
+Avoid bright, playful, or multicolored visuals
+
+Aim for a soft, modern, humanitarian look
+
+⭐ 2. Platform Structure
+
+The website should include the following main tabs, sub-tabs, and pages:
+
+A. Landing Page (Professional & Minimal)
+
+Include:
+
+Simple hero section describing what ReliefBridge is
+
+Why it exists (community-driven disaster support)
+
+How the platform helps
+
+Buttons to access main features
+
+Calm monotone visuals
+
+Simple geometric icons instead of emojis
+
+Short text explaining each section
+
+B. Main Features / Tabs
+1. Report Case
+
+Provide two separate forms:
+
+Affected person reporting for themselves
+
+Relative / friend reporting on behalf of someone with no power/signal
+
+Fields include:
+
+Name, location, situation severity, needs, contact methods, last known status
+
+Auto-location suggestion if possible
+
+Save data to Firebase
+
+Add option to upload photos
+
+Add option to download the report as PDF or CSV
+
+2. Volunteer Entity
+
+Allow volunteers to submit information as:
+
+Bulk text (copy/paste from WhatsApp)
+
+Bulk lists
+
+CSV files
+
+Photos or screenshots
+
+All submissions stored in Firebase.
+Users can download any compiled reports as PDF or CSV.
+
+3. Offline Mode
+
+Allow users to type a report while offline
+
+Save it in local browser storage
+
+Auto-submit when they reconnect
+
+Show a “Saved Offline” indicator
+
+4. Dashboard
+
+Show all reports in a clean, filtered table
+
+With severity levels (C/V/D/T) color-coded using shades of the chosen monotone color
+
+Sorting, filtering, searching
+
+Allow users to download filtered reports as PDF or CSV
+
+Entire database visible — open to the public
+
+5. Map View
+
+Interactive map
+
+Affected areas visualized by severity (shades of same color family)
+
+Clicking an area reveals the relevant reports
+
+All markers come from submitted report locations
+
+⭐ 3. Second Set of Tabs (Sub-Sections)
+A. Donor Pool
+
+A pool containing donors + affected families
+
+Matching system
+
+Users can browse & download lists as PDF/CSV
+
+B. House Rebuild Campaigns
+
+Long-term support initiative
+
+Show families needing rebuilding support
+
+Donors can pledge help
+
+Track progress
+
+C. Volunteer Skills Registry
+
+Volunteers list their skills: transport, rescue, medical, logistics, etc.
+
+Public searchable list
+
+D. Medical Support Pool
+
+People needing medical help (medicine, transport, financial assistance)
+
+Donors willing to fund medical needs
+
+E. Special Needs + Family Support Matching
+
+Families with long-term support requirements
+
+Match donors directly
+
+F. Authorities & NGOs
+
+Directory of verified:
+
+Government authorities
+
+NGOs
+
+Rescue teams
+
+Community support groups
+
+Provide direct contact details
+
+G. Become a Donor
+
+Registration form for donors
+
+Donation categories: food, shelter, medical aid, transportation, long-term support
+
+Add to donor pool
+
+H. Emergency Alerts
+
+Real-time updates for critical areas
+
+Publicly visible
+
+Minimal color-coded alert system
+
+⭐ 4. Functional Requirements
+Data Storage
+
+Use Firebase Firestore as the backend for now.
+Make all data publicly readable because:
+
+This is a community-driven platform
+
+Information must be accessible to everyone
+
+No private or restricted dashboards
+
+Download Options
+
+Every major list should support downloading as:
+
+PDF
+
+CSV
+
+Design Replacements
+
+Replace all emojis with modern outline icons
+
+Use monochromatic shapes
+
+Maintain minimalist visual design
+
+⭐ 5. Additional Requirements
+Platform behavior
+
+Responsive on all devices
+
+User-friendly
+
+Fast
+
+Clean UI spacing
+
+Professional structure
+
+Beta version acceptable but must look polished
+
+Deployment
+
+After generating the full project, the AI should:
+
+Prepare it for deployment on Vercel
+
+Provide a build folder, environment variables needed, and Firebase config
+
+Ensure all routes use client-side routing (Next.js preferred)
+
+⭐ 6. After Building — Tell Me the Next Steps
+
+At the end of the project generation, please add a section explaining:
+
+How to set up Firebase for public access
+
+How to deploy on Vercel
+
+How to test the site after deployment
+
+How to monitor uptime issues
+
+How to maintain the public database
+
+How to run the beta version
+
+How to expand it in the future
+
+Marketing plan for reaching the public
