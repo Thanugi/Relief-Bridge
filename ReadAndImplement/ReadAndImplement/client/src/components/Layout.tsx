@@ -110,11 +110,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       </header>
 
       <main className="flex-1 container mx-auto px-4 py-8">
-        {/* Welcome and Description */}
-        <div className="text-center mb-8">
-          <h1 className="text-2xl font-bold text-foreground">{t("welcome")}</h1>
-          <p className="text-muted-foreground">{t("description")}</p>
-        </div>
         {children}
       </main>
 
