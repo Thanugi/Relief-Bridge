@@ -4,11 +4,19 @@ import { Button } from "@/components/ui/button";
 import { Menu, X, WifiOff, AlertCircle } from "lucide-react";
 import { useState } from "react";
 import { useApp } from "@/lib/AppContext";
+import { useTranslation } from "react-i18next";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [location] = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { isOffline } = useApp();
+  const { i18n } = useTranslation();
+
+  const changeLanguage = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const lng = event.target.value;
+    i18n.changeLanguage(lng); // Change the language
+    localStorage.setItem("language", lng); // Save the preference
+  };
 
   const navItems = [
     { label: "Home", path: "/" },
@@ -60,6 +68,17 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             ))}
           </nav>
 
+          {/* Language Selector Dropdown */}
+          <select
+            onChange={changeLanguage}
+            defaultValue={i18n.language}
+            className="ml-4 p-2 border rounded text-sm"
+          >
+            <option value="en">English</option>
+            <option value="si">සිංහල</option>
+            <option value="ta">தமிழ்</option>
+          </select>
+
           {/* Mobile Menu Toggle */}
           <button
             className="md:hidden p-2 text-muted-foreground hover:text-foreground"
@@ -108,7 +127,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               A community-driven platform for disaster relief coordination. Open, transparent, and dedicated to helping Sri Lanka recover.
             </p>
           </div>
-          
+
           <div>
             <h3 className="font-semibold mb-4 text-foreground">Emergency</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
