@@ -6,6 +6,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
 import { AppProvider } from "@/lib/AppContext";
 import Layout from "@/components/Layout";
+import React from "react";
+import { useTranslation } from "react-i18next";
 
 // Pages
 import Home from "@/pages/Home";
@@ -30,11 +32,27 @@ function Router() {
 }
 
 function App() {
+  const { t, i18n } = useTranslation();
+
+  const changeLanguage = (lng: string) => {
+    i18n.changeLanguage(lng); // Change the language
+    localStorage.setItem("language", lng); // Save the preference
+  };
+
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <AppProvider>
           <Toaster />
+          <div>
+            {/* Language Selector */}
+            <h1>{t("welcome")}</h1>
+            <p>{t("description")}</p>
+            <button onClick={() => changeLanguage("en")}>English</button>
+            <button onClick={() => changeLanguage("si")}>සිංහල</button>
+            <button onClick={() => changeLanguage("ta")}>தமிழ்</button>
+          </div>
+          {/* Main Router */}
           <Router />
         </AppProvider>
       </TooltipProvider>
