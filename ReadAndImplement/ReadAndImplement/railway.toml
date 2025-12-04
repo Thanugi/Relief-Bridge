@@ -1,5 +1,2 @@
-[build]
-builder = "nodejs"
-
 [start]
 cmd = "npm start"
