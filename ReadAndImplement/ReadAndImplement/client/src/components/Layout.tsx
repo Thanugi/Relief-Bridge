@@ -1,6 +1,5 @@
 import { Link, useLocation } from "wouter";
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
 import { Menu, X, WifiOff, AlertCircle } from "lucide-react";
 import { useState } from "react";
 import { useApp } from "@/lib/AppContext";
@@ -10,7 +9,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const [location] = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { isOffline } = useApp();
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const changeLanguage = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const lng = event.target.value;
@@ -32,7 +31,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       {isOffline && (
         <div className="bg-amber-100 text-amber-800 px-4 py-2 text-sm font-medium text-center flex items-center justify-center gap-2">
           <WifiOff className="h-4 w-4" />
-          <span>You are currently offline. Reports will be saved locally and synced when you reconnect.</span>
+          <span>{t("You are currently offline. Reports will be saved locally and synced when you reconnect.")}</span>
         </div>
       )}
 
@@ -110,7 +109,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         )}
       </header>
 
-      <main className="flex-1">
+      <main className="flex-1 container mx-auto px-4 py-8">
+        {/* Welcome and Description */}
+        <div className="text-center mb-8">
+          <h1 className="text-2xl font-bold text-foreground">{t("welcome")}</h1>
+          <p className="text-muted-foreground">{t("description")}</p>
+        </div>
         {children}
       </main>
 
