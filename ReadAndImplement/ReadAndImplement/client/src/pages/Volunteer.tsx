@@ -41,9 +41,9 @@ export default function Volunteer() {
       </div>
 
       <Tabs defaultValue="register" className="w-full">
-        <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-8">
-            <TabsTrigger value="register">Register as Volunteer</TabsTrigger>
-            <TabsTrigger value="directory">Volunteer Directory</TabsTrigger>
+        <TabsList className="grid w-full max-w-2xl mx-auto grid-cols-2 mb-8">
+            <TabsTrigger value="register" className="px-8">Register as Volunteer</TabsTrigger>
+            <TabsTrigger value="directory" className="px-8">Volunteer Directory</TabsTrigger>
         </TabsList>
 
         <TabsContent value="register">

@@ -4,18 +4,13 @@ import { Menu, X, WifiOff, AlertCircle } from "lucide-react";
 import { useState } from "react";
 import { useApp } from "@/lib/AppContext";
 import { useTranslation } from "react-i18next";
+import LanguageSelector from "./LanguageSelector";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [location] = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { isOffline } = useApp();
-  const { t, i18n } = useTranslation();
-
-  const changeLanguage = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const lng = event.target.value;
-    i18n.changeLanguage(lng); // Change the language
-    localStorage.setItem("language", lng); // Save the preference
-  };
+  const { t } = useTranslation();
 
   const navItems = [
     { label: "Home", path: "/" },
@@ -35,11 +30,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </div>
       )}
 
-      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      {/* Top spacing */}
+      <div className="h-10 bg-background"></div>
+
+      <header className="sticky top-10 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           {/* Logo */}
           <Link href="/">
-            <a className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+            <a className="flex items-center gap-2 hover:opacity-80 transition-opacity -ml-2">
               <div className="h-8 w-8 bg-primary rounded-lg flex items-center justify-center text-white">
                 <AlertCircle className="h-5 w-5" />
               </div>
@@ -67,24 +65,20 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             ))}
           </nav>
 
-          {/* Language Selector Dropdown */}
-          <select
-            onChange={changeLanguage}
-            defaultValue={i18n.language}
-            className="ml-4 p-2 border rounded text-sm"
-          >
-            <option value="en">English</option>
-            <option value="si">සිංහල</option>
-            <option value="ta">தமிழ்</option>
-          </select>
+          {/* Language Selector and Mobile Menu */}
+          <div className="flex items-center gap-4">
+            <div className="group">
+              <LanguageSelector />
+            </div>
 
-          {/* Mobile Menu Toggle */}
-          <button
-            className="md:hidden p-2 text-muted-foreground hover:text-foreground"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </button>
+            {/* Mobile Menu Toggle */}
+            <button
+              className="md:hidden p-2 text-muted-foreground hover:text-foreground"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Nav */}

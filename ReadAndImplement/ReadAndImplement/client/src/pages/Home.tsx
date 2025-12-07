@@ -8,9 +8,9 @@ export default function Home() {
   return (
     <div className="animate-in fade-in duration-500">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-muted/20 pt-16 pb-24 lg:pt-32 lg:pb-40">
+      <section className="relative overflow-hidden bg-muted/20 pt-4 pb-24 lg:pt-8 lg:pb-40">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <div className="space-y-8">
               <div className="inline-flex items-center rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-sm font-medium text-primary">
                 <span className="flex h-2 w-2 rounded-full bg-primary mr-2"></span>
@@ -42,12 +42,12 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="relative lg:h-[500px] w-full flex items-center justify-center">
-               <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl border border-border/50 bg-white/50 backdrop-blur-sm p-8">
+            <div className="relative lg:h-[500px] w-full flex items-start justify-end mt-2 lg:mt-0">
+               <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl border border-border/50 bg-white/50 backdrop-blur-sm p-8 max-w-md">
                   <img 
                     src={heroImage} 
                     alt="Relief Coordination Illustration" 
-                    className="rounded-xl w-full h-auto object-cover max-h-[500px]"
+                    className="rounded-xl w-full h-auto object-cover max-h-[180px]"
                   />
                </div>
                {/* Decorative elements */}
